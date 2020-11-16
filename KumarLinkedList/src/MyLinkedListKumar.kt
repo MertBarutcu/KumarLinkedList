@@ -10,7 +10,6 @@ class MyLinkedListKumar {
         var next: Node? = null
     }
 
-    /* Add a node before the first element of the linked list */
     fun addAtHead(value: Any?){
         val h = this.head
         val newNode = Node(value)
@@ -19,7 +18,7 @@ class MyLinkedListKumar {
         if (h == null) tail = newNode
         this.length++
     }
-    /* Append a node to the last element of the linked list. */
+
     fun addAtTail(value: Any?){
         var h = head
         val newNode = Node(value)
@@ -29,42 +28,7 @@ class MyLinkedListKumar {
         tail = newNode
         this.length++
     }
-    fun addAtTail2(value: Any?){
-        if(length==null) addAtHead(value)
-        else {
-            var t = tail
-            val newNode = Node(value)
-            newNode.next = null
-            tail = newNode
-            t?.next = newNode
-            length++
-        }
-    }
 
-    /* Add a node before the index-th node in the linked list */
-    fun addAtIndex(index: Int, value: Any?){
-        var h = head
-        var newNode = Node(value)
-        var counter = 0
-        if (index < 0 || index > this.length) return
-        if (index == 0) {
-            addAtHead(value)
-            return
-        }
-        if (index == this.length) {
-            addAtTail(value)
-            return
-        }
-        while (counter != index-1){
-            h = h!!.next
-            counter++
-        }
-        newNode.next = h!!.next
-        h.next = newNode
-        this.length++
-    }
-
-    /* Delete the index-th node in the linked list, if the index is valid. */
     fun deleteAtIndex(index: Int) {
         var curr = this.head
         var prev:Node? = null
@@ -84,7 +48,7 @@ class MyLinkedListKumar {
         if (index == length-1) tail = prev
         this.length--
     }
-    /*  Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
+
     fun get(index: Int): Any?{
         var h = head
         var counter = 0
